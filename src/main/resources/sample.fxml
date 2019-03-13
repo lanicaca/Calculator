@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
 <?import javafx.scene.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.effect.*?>
@@ -56,7 +57,7 @@
             </TextArea>
             <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="106.0" layoutY="71.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="integralIcon.png" />
+                  <Image url="@integralIcon.png" />
                </image>
             </ImageView>
          </children>

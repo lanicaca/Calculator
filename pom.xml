@@ -10,8 +10,6 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <python_package>sample_pb</python_package>
-        <python_compile_phase>never</python_compile_phase>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
     </properties>
@@ -80,29 +78,6 @@
                         <target>1.8</target>
                     </configuration>
                 </plugin>
-                <!--<plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-resources-plugin</artifactId>
-                    <version>2.3</version>
-                    <executions>
-                        <execution>
-                            <id>copy-resource-one</id>
-                            <phase>install</phase>
-                            <goals>
-                                <goal>copy-resources</goal>
-                            </goals>
-                            <configuration>
-                                <outputDirectory>${basedir}/target/classes</outputDirectory>
-                                <resources>
-                                    <resource>
-                                        <directory>src/main/python</directory>
-                                        <filtering>true</filtering>
-                                    </resource>
-                                </resources>
-                            </configuration>
-                        </execution>
-                    </executions>
-                </plugin>-->
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-assembly-plugin</artifactId>
@@ -133,8 +108,8 @@
                 <directory>src/main/resources</directory>
                 <includes>
                     <include>**/**/*.properties</include>
-                    <include>**/**/*.py</include>
                     <include>**/**/*.fxml</include>
+                    <include>**/**/*.png</include>
                 </includes>
             </resource>
         </resources>
