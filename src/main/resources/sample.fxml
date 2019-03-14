@@ -1,66 +1,75 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import javafx.scene.*?>
-<?import javafx.geometry.*?>
-<?import javafx.scene.effect.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.*?>
-
-<GridPane alignment="center" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.Controller">
-   <columnConstraints>
-      <ColumnConstraints />
-   </columnConstraints>
-   <rowConstraints>
-      <RowConstraints />
-   </rowConstraints>
-   <children>
-      <Pane prefHeight="906.0" prefWidth="1155.0" style="-fx-background-color: #fffaf2;">
-         <children>
-            <TextField fx:id="txtFieldId" alignment="CENTER" layoutX="221.0" layoutY="142.0" prefHeight="40.0" prefWidth="415.0" promptText="Your function">
-               <cursor>
-                  <Cursor fx:constant="NONE" />
-               </cursor>
-               <font>
-                  <Font name="DejaVu Serif Bold" size="13.0" />
-               </font></TextField>
-            <Button fx:id="btn" alignment="CENTER" contentDisplay="CENTER" layoutX="343.0" layoutY="253.0" mnemonicParsing="false" onAction="#graphPlot" prefHeight="54.0" prefWidth="172.0" style="-fx-background-color: #001a33;" text="Solve" textAlignment="CENTER" textFill="#f8f6f6" textOverrun="CLIP">
-               <font>
-                  <Font name="DejaVu Serif Bold" size="13.0" />
-               </font></Button>
-            <Label fx:id="resultId" layoutX="163.0" layoutY="363.0" prefHeight="40.0" prefWidth="533.0" style="-fx-background-color: #EEEEEE;" />
-            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="60.0" layoutY="363.0" prefHeight="40.0" prefWidth="77.0" text="Result" textFill="#001a33">
-               <font>
-                  <Font name="DejaVu Serif Bold" size="13.0" />
-               </font></Label>
-            <Pane id="graphPaneId" fx:id="graphPaneId" layoutX="40.0" layoutY="479.0" prefHeight="369.0" prefWidth="1016.0" style="-fx-background-color: #001a33;" />
-            <TextField fx:id="aFieldId" alignment="CENTER" layoutX="115.0" layoutY="233.0" prefHeight="40.0" prefWidth="65.0" promptText="a">
-               <font>
-                  <Font name="DejaVu Serif Bold" size="13.0" />
-               </font></TextField>
-            <TextField fx:id="bFieldId" alignment="CENTER" layoutX="115.0" layoutY="20.0" prefHeight="40.0" prefWidth="65.0" promptText="b" snapToPixel="false">
-               <opaqueInsets>
-                  <Insets />
-               </opaqueInsets>
-               <effect>
-                  <Glow />
-               </effect>
-               <font>
-                  <Font name="DejaVu Serif Bold" size="13.0" />
-               </font></TextField>
-            <TextArea layoutX="785.0" layoutY="1.0" nodeOrientation="LEFT_TO_RIGHT" opacity="0.76" prefHeight="439.0" prefWidth="369.0" style="-fx-background-color: #85b291;" text="OPERATORS:&#10;&#10;Addition: 2 + 2&#10;Subtraction: 2 - 2&#10;Multiplication: 2 * 2&#10;Division: 2 / 2&#10;Exponentation: 2 ^ 2&#10;Unary Minus,Plus (Sign Operators): +2 - (-2)&#10;Modulo: 2 % 2&#10;&#10;&#10;FUNCTIONS:&#10;&#10;abs: absolute value&#10;acos: arc cosine&#10;asin: arc sine&#10;atan: arc tangent&#10;cbrt: cubic root&#10;ceil: nearest upper integer&#10;cos: cosine&#10;cosh: hyperbolic cosine&#10;exp: euler's number raised to the power (e^x)&#10;floor: nearest lower integer&#10;log: logarithmus naturalis (base e)&#10;log10: logarithm (base 10)&#10;log2: logarithm (base 2)&#10;sin: sine&#10;sinh: hyperbolic sine&#10;sqrt: square root&#10;tan: tangent&#10;tanh: hyperbolic tangent&#10;signum: signum function">
-               <font>
-                  <Font name="FreeMono Bold" size="12.0" />
-               </font>
-            </TextArea>
-            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="106.0" layoutY="71.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@integralIcon.png" />
-               </image>
-            </ImageView>
-         </children>
-      </Pane>
-   </children>
+<?import javafx.scene.text.*?>
+<GridPane xmlns:fx="http://javafx.com/fxml/1" alignment="center" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/8"
+          fx:controller="ui.Controller">
+    <columnConstraints>
+        <ColumnConstraints/>
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints/>
+    </rowConstraints>
+    <children>
+        <Pane prefHeight="906.0" prefWidth="1155.0" style="-fx-background-color: #fffaf2;">
+            <children>
+                <TextField fx:id="txtFieldId" alignment="CENTER" layoutX="221.0" layoutY="142.0" prefHeight="40.0"
+                           prefWidth="415.0" promptText="Your function">
+                    <font>
+                        <Font name="DejaVu Serif Bold" size="13.0"/>
+                    </font>
+                </TextField>
+                <Button fx:id="btn" alignment="CENTER" contentDisplay="CENTER" layoutX="342.0" layoutY="262.0"
+                        mnemonicParsing="false" onAction="#graphPlot" prefHeight="54.0" prefWidth="172.0"
+                        style="-fx-background-color: #001a33;" text="Solve" textAlignment="CENTER" textFill="#f8f6f6"
+                        textOverrun="CLIP">
+                    <font>
+                        <Font name="DejaVu Serif Bold" size="13.0"/>
+                    </font>
+                </Button>
+                <Label fx:id="resultId" layoutX="220.0" layoutY="372.0" prefHeight="40.0" prefWidth="415.0"
+                       style="-fx-background-color: #EEEEEE;"/>
+                <Label alignment="CENTER" contentDisplay="CENTER" layoutX="114.0" layoutY="377.0" prefHeight="40.0"
+                       prefWidth="77.0" text="Result" textFill="#001a33">
+                    <font>
+                        <Font name="DejaVu Serif Bold" size="13.0"/>
+                    </font>
+                </Label>
+                <Pane id="graphPaneId" fx:id="graphPaneId" layoutX="40.0" layoutY="482.0" prefHeight="369.0"
+                      prefWidth="1075.0" style="-fx-background-color: #001a33;"/>
+                <TextField fx:id="aFieldId" alignment="CENTER" layoutX="115.0" layoutY="233.0" prefHeight="40.0"
+                           prefWidth="65.0" promptText="a">
+                    <font>
+                        <Font name="DejaVu Serif Bold" size="13.0"/>
+                    </font>
+                </TextField>
+                <TextField fx:id="bFieldId" alignment="CENTER" layoutX="115.0" layoutY="20.0" prefHeight="40.0"
+                           prefWidth="65.0" promptText="b" snapToPixel="false">
+                    <opaqueInsets>
+                        <Insets/>
+                    </opaqueInsets>
+                    <font>
+                        <Font name="DejaVu Serif Bold" size="13.0"/>
+                    </font>
+                </TextField>
+                <TextArea layoutX="804.0" layoutY="8.0" nodeOrientation="LEFT_TO_RIGHT" opacity="0.76"
+                          prefHeight="403.0" prefWidth="343.0" style="-fx-background-color: #85b291;"
+                          text="OPERATORS:&#10;&#10;Addition: 2 + 2&#10;Subtraction: 2 - 2&#10;Multiplication: 2 * 2&#10;Division: 2 / 2&#10;Exponentation: 2 ^ 2&#10;Unary Minus,Plus (Sign Operators): +2 - (-2)&#10;Modulo: 2 % 2&#10;&#10;&#10;FUNCTIONS:&#10;&#10;abs: absolute value&#10;acos: arc cosine&#10;asin: arc sine&#10;atan: arc tangent&#10;cbrt: cubic root&#10;ceil: nearest upper integer&#10;cos: cosine&#10;cosh: hyperbolic cosine&#10;exp: euler's number raised to the power (e^x)&#10;floor: nearest lower integer&#10;log: logarithmus naturalis (base e)&#10;sin: sine&#10;sinh: hyperbolic sine&#10;sqrt: square root&#10;tan: tangent&#10;tanh: hyperbolic tangent&#10;signum: signum function">
+                    <font>
+                        <Font name="FreeMono Bold" size="12.0"/>
+                    </font>
+                </TextArea>
+                <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="106.0" layoutY="71.0" pickOnBounds="true"
+                           preserveRatio="true">
+                    <image>
+                        <Image url="@integralIcon.png"/>
+                    </image>
+                </ImageView>
+            </children>
+        </Pane>
+    </children>
 </GridPane>

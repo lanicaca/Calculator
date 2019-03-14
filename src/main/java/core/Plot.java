@@ -1,4 +1,5 @@
 package core;
+
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.*;
@@ -11,7 +12,7 @@ public class Plot extends Pane {
         this.integral = integral;
     }
 
-    public void draw(Axes axes){
+    public void draw(Axes axes) {
         Path path = new Path();
         path.setStroke(Color.ORANGE.deriveColor(0, 1, 1, 0.6));
         path.setStrokeWidth(2);
@@ -25,7 +26,6 @@ public class Plot extends Pane {
         );
         int index = 0;
         int length = integral.getFunction().getX_coords().size();
-        System.out.println(length);
         double xMax = integral.getFunction().getX_coords().get(length - 1);
         double x = integral.getFunction().getX_coords().get(index);
         double y = integral.getFunction().getY_coords().get(index);
@@ -49,7 +49,7 @@ public class Plot extends Pane {
                                     mx, my
                             )
                     );
-                    firstDotPlotted=true;
+                    firstDotPlotted = true;
                 }
 
             } catch (Exception e) {

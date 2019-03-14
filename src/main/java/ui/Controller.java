@@ -4,12 +4,10 @@ import core.Axes;
 import core.Function;
 import core.Integral;
 import core.Plot;
-import de.congrace.exp4j.UnknownFunctionException;
-import de.congrace.exp4j.UnparsableExpressionException;
-
 import javafx.concurrent.Task;
 import javafx.fxml.FXML;
 import javafx.geometry.Insets;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
@@ -43,7 +41,7 @@ public class Controller {
 
 
     @FXML
-    private void setResult() throws UnparsableExpressionException, UnknownFunctionException {
+    private void setResult() throws Exception {
         log.info("in setResult");
         function = new Function(txtFieldId.getText().trim());
         a = Integer.parseInt(aFieldId.getText().trim());
@@ -66,12 +64,17 @@ public class Controller {
     }
 
     @FXML
-    public void graphPlot() throws UnknownFunctionException, UnparsableExpressionException {
-        setResult();
+    public void graphPlot() {
+        try {
+            setResult();
+        } catch (Exception e) {
+            throwExceptionDialog("All fields are required");
+            return;
+        }
         task.setOnSucceeded(event -> {
             resultId.setText(task.getValue());
             double temp;
-            if (Math.abs(a)>Math.abs(b)) {
+            if (Math.abs(a) > Math.abs(b)) {
                 temp = Math.abs(a);
             } else {
                 temp = Math.abs(b);
@@ -84,9 +87,20 @@ public class Controller {
             Plot plot = new Plot(integral);
             plot.draw(axes);
             graphPaneId.getChildren().clear();
-            graphPaneId.setPadding(new Insets(20));
+            graphPaneId.setPadding(new Insets(20, 20, 20, 20));
             graphPaneId.getChildren().add(plot);
 
         });
+        task.setOnFailed(e -> {
+            throwExceptionDialog("Wrong expression entered");
+        });
+    }
+
+    private void throwExceptionDialog(String message) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Error");
+        alert.setHeaderText("Something went wrong");
+        alert.setContentText(message);
+        alert.showAndWait();
     }
 }

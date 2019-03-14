@@ -13,11 +13,16 @@ public class Main extends Application {
 
     private static final Logger log = Logger.getLogger(Main.class);
 
+    public static void main(String[] args) {
+        log.info("before Launch");
+        launch(args);
+        log.info("After Launch");
+    }
 
     @Override
-    public void start(Stage primaryStage) throws Exception{
+    public void start(Stage primaryStage) throws Exception {
         URL guiUrl = getClass().getClassLoader().getResource("sample.fxml");
-        if (guiUrl == null){
+        if (guiUrl == null) {
             //Error window
             return;
         }
@@ -26,11 +31,5 @@ public class Main extends Application {
         primaryStage.setScene(new Scene(root));
         primaryStage.setResizable(false);
         primaryStage.show();
-    }
-
-    public static void main(String[] args) {
-        log.info("before Launch");
-        launch(args);
-        log.info("After Launch");
     }
 }
